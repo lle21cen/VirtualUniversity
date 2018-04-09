@@ -5,86 +5,120 @@
 <title>Virtual University</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="themes/mytheme.css">
-<link rel="stylesheet" href="themes/jquery.mobile.icons.min.css">
-<link href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" rel="stylesheet" type="text/css">
-<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css" />
+<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
 <link  href="http://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css" rel="stylesheet">
 <script src="http://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js"></script>
+<style type="text/css">
+#logo {
+	background-image: url(img/CI_TITLE.png);
+	background-repeat: no-repeat;
+	text-indent: -9999px;
+	width: 176px;
+	height: 132px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 0px;
+	margin-bottom: 10px;
+}
+#pic_univ {
+	float: left;
+	margin-right: 10px;
+	margin-bottom: 10px;
+	-webkit-transition: width, 1s;
+}
+.title_style {
+	padding-top: 10px;
+	color: #3f3c30;
+}
+.small {
+	width: 30%;
+}
+.large {
+	width: 100%;
+}
+.clear_both {
+	clear: both;
+}
+.bold_style {
+	font-weight: bold;
+	color: #950000;
+}
+</style>
+<script src="http//code.jquery.com/jquery-3.2.1.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$("#pic_univ").data("flag", "false");
+		$("#pic_univ").click(function() {
+			var bflag = $("#pic_univ").data("flag");
+			if(bflag=="false") {
+				bflag = "true";
+				$("#pic_univ").removeClass("small");
+				$("#pic_univ").addClass("large");
+				var newSrc = $(this).attr("src").replace("img/univ_small.jpg", "img/univ_large.jpg");
+				$(this).attr("src", newSrc);
+			}
+			else {
+				bflag = "false";
+				$("#pic_univ").removeClass("large");
+				$("#pic_univ").addClass("small");
+				var newSrc = $(this).attr("src").replace("img/univ_large.jpg", "img/univ_small.jpg");
+				$(this).attr("src", newSrc);
+			}
+			$("#pic_univ").data("flag", bflag);
+		});
+	});
+</script>
 
-	
-	<style type="text/css">
-		#logo {
-			background-image: url(img/CI_TITLE.png);
-			background-repeat: no-repeat;
-			text-indent: -9999px;
-			width: 176px;
-			height: 132px;
-			margin-left: auto;
-			margin-right: auto;
-			margin-top: 0px;
-			margin-bottom: 10px;
-		}
-		.title_style {
-			padding-top: 10px;
-			color: #3f3c30;
-		}
-	</style>
 </head>
 
 <body>
-	<div data-role="page" id="main">
-	  <div data-role="header" data-theme="b">
-		<h1 id="logo">Virtual University</h1>
-	  </div>
-	  <div data-role="content">
-		  <ul data-role="listview" data-inset="true">
-			  <li>
-				  <a href="#campus_image" data-transition="slide">
-					<img src="img/pic_i.png" alt="" class="ui-li-thumb"/>
-					<h3 class="title_style">Campus Image</h3>
-				  </a>
-			  </li>
-			  <li>
-				<a href="#">
-					<img src="img/intro_i.png" alt="" class="ui-li-thumb"/>
-					<h3 class="title_style">Introduction</h3>
-				</a>
-			  </li>
-			  <li>
-				<a href="#">
-					<img src="img/movie_i.png" alt="" class="ui-li-thumb"/>
-					<h3 class="title_style">Public Relations</h3>
-				</a>
-			  </li>
-			  <li>
-				<a href="#">
-					<img src="img/map_i.png" alt="" class="ui-li-thumb"/>
-					<h3 class="title_style">Campus Map</h3>
-				</a>
-			  </li>
-		  </ul>
-		</div>  
-	</div>
-	
-	<div data-role="page" id="campus_image" class="gallery-page">
-		<div data-role="header" data-theme="b">
-			<a href="#main" data-icon="home" data-direction="reverse" class="ui-btn-left" data-transition="slide">Home</a>
-			<h1>Campus Image</h1>
-		</div>
-		<div data-role="content">
-			<div class="fotorama" data-arrows="true" data-width="100%" data-ratio="965/643" 
-				 data-allowfullscreen="true" data-nav="thumbs">
-				<a href="img/pic/full/cb01.jpg"><img src="img/pic/thumb/ca01.jpg" data-caption="호수공원"/></a>
-				<a href="img/pic/full/cb02.jpg"><img src="img/pic/thumb/ca02.jpg" data-caption="자유관"/></a>
-				<a href="img/pic/full/cb03.jpg"><img src="img/pic/thumb/ca03.jpg" data-caption="성실관"/></a>
-				<a href="img/pic/full/cb04.jpg"><img src="img/pic/thumb/ca04.jpg" data-caption="학생회관"/></a>
-				<a href="img/pic/full/cb05.jpg"><img src="img/pic/thumb/ca05.jpg" data-caption="자유관 앞 조형물"/></a>
-				<a href="img/pic/full/cb06.jpg"><img src="img/pic/thumb/ca06.jpg" data-caption="본관"/></a>
-				<a href="img/pic/full/cb07.jpg"><img src="img/pic/thumb/ca07.jpg" data-caption="채플관"/></a>
-				<a href="https://www.youtube.com/watch?v=ZpGPfQPS0_Q&t=42s" data-caption="스타 명경기"></a>
-			</div>
-		</div>
-	</div>
+<div data-role="page" id="main">
+  <div data-role="header" data-theme="b">
+    <h1 id="logo">Virtual University</h1>
+  </div>
+  <div data-role="content">
+    <ul data-role="listview" data-inset="true">
+      <li> <a href="#campus_image" data-transition="slide"> <img src="img/pic_i.png" alt="" class="ui-li-thumb"/>
+        <h3 class="title_style">Campus Image</h3>
+        </a> </li>
+      <li> <a href="#intro" data-transition="slide"> <img src="img/intro_i.png" alt="" class="ui-li-thumb"/>
+        <h3 class="title_style">Introduction</h3>
+        </a> </li>
+      <li> <a href="video.html" data-transition="slide"> <img src="img/movie_i.png" alt="" class="ui-li-thumb"/>
+        <h3 class="title_style">Public Relations</h3>
+        </a> </li>
+      <li> <a href="#" data-transition="slide"> <img src="img/map_i.png" alt="" class="ui-li-thumb"/>
+        <h3 class="title_style">Campus Map</h3>
+        </a> </li>
+    </ul>
+  </div>
+</div>
+<div data-role="page" id="campus_image" class="gallery-page">
+  <div data-role="header" data-theme="b"> <a href="#main" data-icon="home" data-direction="reverse" class="ui-btn-left" data-transition="slide">Home</a>
+    <h1>Campus Image</h1>
+  </div>
+  <div data-role="content">
+    <div class="fotorama" data-arrows="true" data-width="100%" data-ratio="965/643" 
+			data-allowfullscreen="true" data-nav="thumbs"> <a href="img/pic/full/cb01.jpg"><img src="img/pic/thumb/ca01.jpg" data-caption="호수공원"/></a> <a href="img/pic/full/cb02.jpg"><img src="img/pic/thumb/ca02.jpg" data-caption="자유관"/></a> <a href="img/pic/full/cb03.jpg"><img src="img/pic/thumb/ca03.jpg" data-caption="성실관"/></a> <a href="img/pic/full/cb04.jpg"><img src="img/pic/thumb/ca04.jpg" data-caption="학생회관"/></a> <a href="img/pic/full/cb05.jpg"><img src="img/pic/thumb/ca05.jpg" data-caption="자유관 앞 조형물"/></a> <a href="img/pic/full/cb06.jpg"><img src="img/pic/thumb/ca06.jpg" data-caption="본관"/></a> <a href="img/pic/full/cb07.jpg"><img src="img/pic/thumb/ca07.jpg" data-caption="채플관"/></a> <a href="https://www.youtube.com/watch?v=ZpGPfQPS0_Q&t=42s">스타 명경기</a> </div>
+  </div>
+</div>
+<div data-role="page" id="intro">
+  <div data-role="header" data-theme="b"> <a href="#main" data-icon="home" data-direction="reverse" class="ui-btn-left" data-transition="slide">Home</a>
+    <h1>대학교 소개</h1>
+  </div>
+  <div data-role="content"> <img src="img/univ_small.jpg" id="pic_univ" class="small" alt="">
+    <h2>"<strong class="bold_style">시대정신</strong>을 선도하는 열린 <strong class="bold_style">학문 공동체</strong> 입니다."</h2>
+    <div class="clear_both"></div>
+    <p>안녕하십니까? 버추얼 대학교에 관심을 가져주셔서 감사합니다. 버추얼 대학교는 1세기의 역사를 지니며 그 동안 많은 발전을 거듭하였습니다. </p>
+    <p>버추어 대학교는 세계에서 가장 선도적인 대학교 중의 하나로 인정받고 있습니다. 설립목적은 사회와 개인에 직접적인 기여와 성공을 준비할 수 있도록 하는 것입니다. 궁극적으로는 인류문명에 유용한 인재를 양성하는 것입니다. 오늘날 버추얼 대학교는 현재 인류가 당면하고 있는 여러 문제를 해결하고 다음 세대를 선도할 수 있는 리더가 될 수 있도록 학생들을 준비시키는 것입니다. </p>
+    <p>여러분의 미래를 버추얼 대학교에서 함께하시길 희망합니다. </p>
+    <p>총장 Luke Andrew</p>
+  </div>
+  <div data-role="footer">
+    <h4>Virtual University</h4>
+  </div>
+</div>
 </body>
 </html>
